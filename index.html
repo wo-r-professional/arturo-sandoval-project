@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Arturo Sandoval</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            * {
+                overscroll-behavior: none;
+                scroll-behavior: smooth;
+            }
+
+            @keyframes pop-in {
+                0% {
+                    transform: scale(0.5);
+                    opacity: 0;
+                    transform-origin: center center;
+                }
+                100% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+
+            .pop {
+                animation: pop-in .5s ease forwards;
+            }
+
+            a {
+                position: relative;
+                text-decoration: none;
+            }
+
+            a::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: #474ce2;
+                visibility: hidden;
+                transform: scaleX(0);
+                transition: all 0.3s ease-in-out;
+            }
+
+            a:hover::before {
+                visibility: visible;
+                transform: scaleX(1);
+            }
+
+            @keyframes in-and-out {
+                0% {
+                    color: white;
+                }
+                50% {
+                    color: rgb(122, 122, 122);
+                }
+                100% {
+                    color: white;
+                }
+            }
+
+            .click-me:not(.click-me:hover) {
+                transition: color 2s;
+                animation: in-and-out 2s linear infinite;
+            }
+        </style>
+    </head>
+    <body class="bg-black overscroll-none text-white font-sans">
+        <div class="container mx-auto z-10">
+            <section id="hero">
+                <div class="h-screen flex justify-center items-center">
+                    <div class="flex flex-col items-center">
+                        <img src="./main.jpg" class="rounded-full w-1/3">
+                        <div class="pt-10 flex flex-col items-center">
+                            <h2 class="font-black text-3xl">Arturo Sandoval</h2>
+                            <small><i>Nació el 6 de noviembre de 1949 en Artemisa, Cuba</i></small>
+                            <a href="#start" class="cursor-pointer click-me"><i>Learn more</i></a>
+                        </div>
+                    </div>
+                </div>                
+            </section>
+            <section id="start">
+                <div class="flex flex-col">
+                    <div class="flex justify-center items-center pt-20">
+                        <h2 class="font-black text-3xl">Arturo's Family</h2>
+                    </div>
+                    <div class="flex flex-col items-center text-center pt-10">
+                        <img src="https://pbs.twimg.com/media/DghIEj-UwAESmn7.jpg" class="rounded-3xl h-96 mb-5 pop">
+                        <p class="w-5/12">Arturo Sandoval nació en una familia pobre en Artemisa, Cuba. Su padre era camionero y tocaba la trompeta de manera amateur, mientras que su madre era costurera. Tiene dos hermanos, uno de los cuales también se dedicó a la música.</p>
+                        <a href="#influence" class="cursor-pointer click-me"><i>Next</i></a>
+                    </div>
+                </div>
+            </section>
+            <section id="influence" class="mt-80">
+                <div class="flex flex-col">
+                    <div class="flex justify-center items-center pt-10">
+                        <h2 class="font-black text-3xl">Arturo's Influence</h2>
+                    </div>
+                    <div class="flex flex-col justify-center items-center text-center pt-10">
+                        <img src="./playing.jpg" class="rounded-3xl h-96 mb-5 hidden pop">
+                        <p class="w-7/12">Arturo Sandoval is famous for his incredible trumpet playing skills and his contributions to Latin jazz and jazz music in general. He moved from Cuba in 1990 and has since become a prominent figure in the international jazz scene.</p>
+                        <a href="#achievements" class="cursor-pointer click-me"><i>Learn more</i></a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js" defer></script>
+</html>
