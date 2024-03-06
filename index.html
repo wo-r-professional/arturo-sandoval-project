@@ -3,42 +3,40 @@
     <head>
         <meta charset="utf-8">
         <title>Arturo Sandoval</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
         <script src="https://cdn.tailwindcss.com"></script>
         <style>
-            /**
-                * This code is designed to overwrite the cdn.tailwindcss.com styling
-                */
-
             * {
                 overscroll-behavior: none;
                 scroll-behavior: smooth;
                 overflow: overlay;
             }
 
-            body,
-            html {
+            body, html {
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
                 overflow: hidden;
+                font-family: "Sofia Sans", sans-serif;
+                --theme: #474ce2;
             }
 
             b {
                 text-decoration: underline;
                 text-decoration-thickness: 2px;
                 text-underline-offset: 1px;
-                text-decoration-color: #474ce2;
-                font-weight: 1000 !important;
+                text-decoration-color: var(--theme);
             }
 
             a {
                 position: relative;
                 text-decoration: none;
+                width: fit-content !important;
             }
 
-            a:not(:has(span))::before {
+            a::before {
                 content: '';
                 position: absolute;
                 width: 100%;
@@ -56,13 +54,9 @@
                 transform: scaleX(1);
             }
 
-            section#welcome .click-me {
-                margin-top: 5px;
-            }
-
-            section#welcome .click-me:not(:hover) {
+            /** Make the "Learn more" more obvious **/
+            section[slide="1"] .click-me:not(:hover) {
                 animation: fade-in-out 2s linear infinite;
-                border-radius: 10px;
             }
 
             @keyframes fade-in-out {
@@ -77,14 +71,16 @@
                 }
             }
 
+            /** Marquee styling **/
             .marquee {
                 width: 100%;
                 margin: 0 auto;
                 position: absolute;
                 inset: 0px;
+                width: max-content;
                 display: flex;
                 flex-direction: column;
-                z-index: -1;
+                z-index: 1;
             }
 
             .marquee img {
@@ -94,9 +90,13 @@
 
             .marquee\:left {
                 width: fit-content;
-                animation: move__left 200s linear infinite;
+                animation: move__left 400s linear infinite;
                 display: flex;
                 flex: 1;
+            }
+
+            .marquee\:left:last-child {
+                animation: move__left 100s linear infinite;
             }
 
             @keyframes move__left {
@@ -118,6 +118,7 @@
                 }
             }
 
+            /** Slide in effects **/
             .slide-in-left {
                 opacity: 0;
                 transform: translateX(-100%);
@@ -136,226 +137,203 @@
             }
         </style>
     </head>
-
-    <body class="bg-black text-white font-sans overscroll-none flex flex-row">
+    <body class="bg-black text-white flex flex-row" target-slide="1">
         <div class="marquee">
-            <div class="marquee:left">
-                <img src="https://the-talks.com/wp-content/uploads/2022/06/Arturo-Sandoval-01.jpg">
-                <img src="https://i.ytimg.com/vi/z1nOfbQ_GwU/maxresdefault.jpg">
-                <img src="https://i.ytimg.com/vi/KRBapxrFxu0/maxresdefault.jpg">
-                <img src="https://news.miami.edu/frost/_assets/images/images-stories/2022/09/arturo-sandoval_940x529.jpg">
-                <img src="https://static.dw.com/image/46032514_6.jpg">
-                <img src="https://sc0.blr1.cdn.digitaloceanspaces.com/article/131856-ftyxouzmns-1574950974.jpeg">
-                <img src="https://www.sltrib.com/resizer/Ghm98VZRyqY8NXDP1_fyGtL6uYo=/1024x650/arc-anglerfish-arc2-prod-sltrib.s3.amazonaws.com/public/GSOUWUS3HVHY5DJW2HN4BWWNBA.jpg">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqAqP65jPL9G79WZucWjGEzTGXBFNgbsjsvA&usqp=CAU">
-
-                <img src="https://the-talks.com/wp-content/uploads/2022/06/Arturo-Sandoval-01.jpg">
-                <img src="https://i.ytimg.com/vi/z1nOfbQ_GwU/maxresdefault.jpg">
-                <img src="https://i.ytimg.com/vi/KRBapxrFxu0/maxresdefault.jpg">
-                <img src="https://news.miami.edu/frost/_assets/images/images-stories/2022/09/arturo-sandoval_940x529.jpg">
-                <img src="https://static.dw.com/image/46032514_6.jpg">
-                <img src="https://sc0.blr1.cdn.digitaloceanspaces.com/article/131856-ftyxouzmns-1574950974.jpeg">
-                <img src="https://www.sltrib.com/resizer/Ghm98VZRyqY8NXDP1_fyGtL6uYo=/1024x650/arc-anglerfish-arc2-prod-sltrib.s3.amazonaws.com/public/GSOUWUS3HVHY5DJW2HN4BWWNBA.jpg">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqAqP65jPL9G79WZucWjGEzTGXBFNgbsjsvA&usqp=CAU">
-
-
-                <img src="https://the-talks.com/wp-content/uploads/2022/06/Arturo-Sandoval-01.jpg">
-                <img src="https://i.ytimg.com/vi/z1nOfbQ_GwU/maxresdefault.jpg">
-                <img src="https://i.ytimg.com/vi/KRBapxrFxu0/maxresdefault.jpg">
-                <img src="https://news.miami.edu/frost/_assets/images/images-stories/2022/09/arturo-sandoval_940x529.jpg">
-                <img src="https://static.dw.com/image/46032514_6.jpg">
-                <img src="https://sc0.blr1.cdn.digitaloceanspaces.com/article/131856-ftyxouzmns-1574950974.jpeg">
-                <img src="https://www.sltrib.com/resizer/Ghm98VZRyqY8NXDP1_fyGtL6uYo=/1024x650/arc-anglerfish-arc2-prod-sltrib.s3.amazonaws.com/public/GSOUWUS3HVHY5DJW2HN4BWWNBA.jpg">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqAqP65jPL9G79WZucWjGEzTGXBFNgbsjsvA&usqp=CAU">
-
-            </div>
-            <div class="marquee:right">
-                <img src="https://the-talks.com/wp-content/uploads/2022/06/Arturo-Sandoval-01.jpg">
-                <img src="https://i.ytimg.com/vi/z1nOfbQ_GwU/maxresdefault.jpg">
-                <img src="https://i.ytimg.com/vi/KRBapxrFxu0/maxresdefault.jpg">
-                <img src="https://sc0.blr1.cdn.digitaloceanspaces.com/article/131856-ftyxouzmns-1574950974.jpeg">
-                <img src="https://www.sltrib.com/resizer/Ghm98VZRyqY8NXDP1_fyGtL6uYo=/1024x650/arc-anglerfish-arc2-prod-sltrib.s3.amazonaws.com/public/GSOUWUS3HVHY5DJW2HN4BWWNBA.jpg">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqAqP65jPL9G79WZucWjGEzTGXBFNgbsjsvA&usqp=CAU">
-                <img src="https://i.ytimg.com/vi/KRBapxrFxu0/maxresdefault.jpg">
-                <img src="https://news.miami.edu/frost/_assets/images/images-stories/2022/09/arturo-sandoval_940x529.jpg">
-                <img src="https://static.dw.com/image/46032514_6.jpg">
-
-                <img src="https://the-talks.com/wp-content/uploads/2022/06/Arturo-Sandoval-01.jpg">
-                <img src="https://i.ytimg.com/vi/z1nOfbQ_GwU/maxresdefault.jpg">
-                <img src="https://i.ytimg.com/vi/KRBapxrFxu0/maxresdefault.jpg">
-                <img src="https://sc0.blr1.cdn.digitaloceanspaces.com/article/131856-ftyxouzmns-1574950974.jpeg">
-                <img src="https://www.sltrib.com/resizer/Ghm98VZRyqY8NXDP1_fyGtL6uYo=/1024x650/arc-anglerfish-arc2-prod-sltrib.s3.amazonaws.com/public/GSOUWUS3HVHY5DJW2HN4BWWNBA.jpg">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqAqP65jPL9G79WZucWjGEzTGXBFNgbsjsvA&usqp=CAU">
-                <img src="https://i.ytimg.com/vi/KRBapxrFxu0/maxresdefault.jpg">
-                <img src="https://news.miami.edu/frost/_assets/images/images-stories/2022/09/arturo-sandoval_940x529.jpg">
-                <img src="https://static.dw.com/image/46032514_6.jpg">
-
-                <img src="https://the-talks.com/wp-content/uploads/2022/06/Arturo-Sandoval-01.jpg">
-                <img src="https://i.ytimg.com/vi/z1nOfbQ_GwU/maxresdefault.jpg">
-                <img src="https://i.ytimg.com/vi/KRBapxrFxu0/maxresdefault.jpg">
-                <img src="https://sc0.blr1.cdn.digitaloceanspaces.com/article/131856-ftyxouzmns-1574950974.jpeg">
-                <img src="https://www.sltrib.com/resizer/Ghm98VZRyqY8NXDP1_fyGtL6uYo=/1024x650/arc-anglerfish-arc2-prod-sltrib.s3.amazonaws.com/public/GSOUWUS3HVHY5DJW2HN4BWWNBA.jpg">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqAqP65jPL9G79WZucWjGEzTGXBFNgbsjsvA&usqp=CAU">
-                <img src="https://i.ytimg.com/vi/KRBapxrFxu0/maxresdefault.jpg">
-                <img src="https://news.miami.edu/frost/_assets/images/images-stories/2022/09/arturo-sandoval_940x529.jpg">
-                <img src="https://static.dw.com/image/46032514_6.jpg">
-            </div>
-            <div class="marquee:left">
-                <img src="https://the-talks.com/wp-content/uploads/2022/06/Arturo-Sandoval-01.jpg">
-                <img src="https://sc0.blr1.cdn.digitaloceanspaces.com/article/131856-ftyxouzmns-1574950974.jpeg">
-                <img src="https://www.sltrib.com/resizer/Ghm98VZRyqY8NXDP1_fyGtL6uYo=/1024x650/arc-anglerfish-arc2-prod-sltrib.s3.amazonaws.com/public/GSOUWUS3HVHY5DJW2HN4BWWNBA.jpg">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqAqP65jPL9G79WZucWjGEzTGXBFNgbsjsvA&usqp=CAU">
-                <img src="https://i.ytimg.com/vi/z1nOfbQ_GwU/maxresdefault.jpg">
-                <img src="https://i.ytimg.com/vi/KRBapxrFxu0/maxresdefault.jpg">
-                <img src="https://news.miami.edu/frost/_assets/images/images-stories/2022/09/arturo-sandoval_940x529.jpg">
-                <img src="https://static.dw.com/image/46032514_6.jpg">
-
-                <img src="https://the-talks.com/wp-content/uploads/2022/06/Arturo-Sandoval-01.jpg">
-                <img src="https://sc0.blr1.cdn.digitaloceanspaces.com/article/131856-ftyxouzmns-1574950974.jpeg">
-                <img src="https://www.sltrib.com/resizer/Ghm98VZRyqY8NXDP1_fyGtL6uYo=/1024x650/arc-anglerfish-arc2-prod-sltrib.s3.amazonaws.com/public/GSOUWUS3HVHY5DJW2HN4BWWNBA.jpg">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqAqP65jPL9G79WZucWjGEzTGXBFNgbsjsvA&usqp=CAU">
-                <img src="https://i.ytimg.com/vi/z1nOfbQ_GwU/maxresdefault.jpg">
-                <img src="https://i.ytimg.com/vi/KRBapxrFxu0/maxresdefault.jpg">
-                <img src="https://news.miami.edu/frost/_assets/images/images-stories/2022/09/arturo-sandoval_940x529.jpg">
-                <img src="https://static.dw.com/image/46032514_6.jpg">
-
-                <img src="https://the-talks.com/wp-content/uploads/2022/06/Arturo-Sandoval-01.jpg">
-                <img src="https://sc0.blr1.cdn.digitaloceanspaces.com/article/131856-ftyxouzmns-1574950974.jpeg">
-                <img src="https://www.sltrib.com/resizer/Ghm98VZRyqY8NXDP1_fyGtL6uYo=/1024x650/arc-anglerfish-arc2-prod-sltrib.s3.amazonaws.com/public/GSOUWUS3HVHY5DJW2HN4BWWNBA.jpg">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqAqP65jPL9G79WZucWjGEzTGXBFNgbsjsvA&usqp=CAU">
-                <img src="https://i.ytimg.com/vi/z1nOfbQ_GwU/maxresdefault.jpg">
-                <img src="https://i.ytimg.com/vi/KRBapxrFxu0/maxresdefault.jpg">
-                <img src="https://news.miami.edu/frost/_assets/images/images-stories/2022/09/arturo-sandoval_940x529.jpg">
-                <img src="https://static.dw.com/image/46032514_6.jpg">
-            </div>
+            <div class="marquee:left" set="1"></div>
+            <div class="marquee:right" set="2"></div>
+            <div class="marquee:left" set="3"></div>
         </div>
         <div class="container mx-auto z-10 flex flex-col gap-96">
-            <section id="welcome">
+            <section slide="1">
                 <div class="h-screen flex justify-center items-center">
-                    <div class="flex flex-col items-center bg-black/70 rounded-3xl w-3/6 py-10">
-                        <img src="https://arturosandoval.com/wp-content/uploads/2024/02/cc857ffe781faf35e5ab5154bd75e-Background-Removed-300x300.png" class="rounded-full bg-black w-1/2">
+                    <div class="flex flex-col items-center bg-black/70 rounded-3xl w-3/6 py-10 shadow-2xl shadow-black-50">
+                        <img src="https://the-talks.com/wp-content/uploads/2022/06/Arturo-Sandoval-01.jpg" style="clip-path: circle();" class="rounded-full w-1/1">
                         <div class="pt-10 flex flex-col items-center">
-                            <h2 class="font-black text-3xl">Arturo Sandoval</h2>
-                            <a goto="who-was-arturo" class="cursor-pointer click-me text-2xl"><i>Learn more</i></a>
+                            <h2 class="font-black text-5xl">Arturo Sandoval</h2>
+                            <small>This is a website presentation created for my Spanish class.</small>
+                            <a goto="2" class="cursor-pointer mt-10 text-2xl click-me">Learn more</a>
                         </div>
                     </div>
-                </div>                
+                </div>
             </section>
-            <section id="who-was-arturo" class="flex flex-row gap-10 justify-center items-center">
-                <div>
+            <section slide="2" class="flex flex-row gap-10 justify-center items-center h-screen">
+                <div class="flex flex-col">
                     <h1 class="font-black text-5xl pb-5 slide-in-left">Who is Arturo?</h1>
                     <p class="slide-in-left">
                         Arturo Sandoval is a <b>Cuban jazz trumpeter, pianist, and composer</b> known for his amazing playing and versatility across various jazz styles.
                     </p>
-                    <br>
-                    <br>
-                    <a goto="welcome" class="cursor-pointer click-me slide-in-left"><i>Go back</i></a>
-                    <br>
-                    <a goto="family" class="cursor-pointer click-me slide-in-left"><i>Next point</i></a>
+                    <a goto="1" class="cursor-pointer click-me slide-in-left mt-10"><i>Go back</i></a>
+                    <a goto="3" class="cursor-pointer click-me slide-in-left"><i>Next point</i></a>
                 </div>
                 <div class="overflow-hidden">
                     <img class="rounded-3xl slide-in-right rotate-3" style="height: 40rem !important; width: 40rem !important;" src="https://www.readingeagle.com/wp-content/uploads/migration/2019/04/91a2d98a8c958f78533af97e9ae57f62.jpg?w=1024">
                 </div>
             </section>
-            <section id="family" class="flex flex-row-reverse gap-10 justify-center items-center">
-                <div>
+            <section slide="3" class="flex flex-row-reverse gap-10 justify-center items-center h-screen">
+                <div class="flex flex-col">
                     <h1 class="font-black text-5xl pb-5 slide-in-right">Arturo's Nacimiento/Familia</h1>
                     <p class="slide-in-right">
-                        Arturo Sandoval nació en una <b>familia pobre</b> en Artemisa, Cuba. <b>Nació el 6 de noviembre de 1949.</b> Su padre era camionero y tocaba la trompeta de manera amateur, mientras que su madre era costurera. Tiene dos hermanos, uno de los cuales también se dedicó a la música.                    
+                        Arturo Sandoval nació en una <b>familia pobre</b> en Artemisa, Cuba. <b>Nació el 6 de noviembre de 1949.</b> Su padre era camionero y tocaba la trompeta de manera amateur, mientras que su madre era costurera. Tiene dos hermanos, uno de los cuales también se dedicó a la música.
                     </p>
-                    <br>
-                    <br>
-                    <a goto="who-was-arturo" class="cursor-pointer click-me slide-in-right"><i>Go back</i></a>
-                    <br>
-                    <a goto="rise-to-fame" class="cursor-pointer click-me slide-in-right"><i>Next point</i></a>
+                    <a goto="2" class="cursor-pointer click-me slide-in-right mt-10"><i>Go back</i></a>
+                    <a goto="4" class="cursor-pointer click-me slide-in-right"><i>Next point</i></a>
                 </div>
                 <div class="overflow-hidden">
-                    <img class="rounded-3xl slide-in-left origin-center -rotate-3" style="height: 30rem !important; width: 60rem !important;" src="https://live.staticflickr.com/5036/6953666788_d1209d4c1e.jpg">
+                    <img class="rounded-3xl slide-in-right origin-center -rotate-3" style="height: 30rem !important; width: 60rem !important;" src="https://live.staticflickr.com/5036/6953666788_d1209d4c1e.jpg">
                 </div>
             </section>
-            <section id="rise-to-fame" class="flex flex-row gap-10 justify-center items-center">
-                <div>
+            <section slide="4" class="flex flex-row gap-10 justify-center items-center h-screen">
+                <div class="flex flex-col">
                     <h1 class="font-black text-5xl pb-5 slide-in-left">Arturo's Fame</h1>
                     <p class="slide-in-left">
-                        Arturo Sandoval is famous for his <b>incredible trumpet playing skills</b> and his contributions to Latin jazz and jazz music in general. He moved from Cuba in 1990 and has since <b>become a prominent figure in the international jazz scene.</b>
+                        Arturo Sandoval is famous for his <b>incredible trumpet playing skills</b> and his contributions to Latin jazz and jazz music in general. He moved from Cuba in 1990 and has since become <b>a prominent figure in the international jazz scene.</b>
                     </p>
-                    <br>
-                    <br>
-                    <a goto="family" class="cursor-pointer click-me slide-in-left"><i>Go back</i></a>
-                    <br>
-                    <a goto="influence" class="cursor-pointer click-me slide-in-left"><i>Next point</i></a>
+                    <a goto="3" class="cursor-pointer click-me slide-in-left mt-10"><i>Go back</i></a>
+                    <a goto="5" class="cursor-pointer click-me slide-in-left"><i>Next point</i></a>
                 </div>
                 <div class="overflow-hidden">
                     <img class="rounded-3xl slide-in-left origin-center rotate-3" style="height: 30rem !important; width: 50rem !important;" src="https://ca-times.brightspotcdn.com/dims4/default/cb40905/2147483647/strip/false/crop/1000x1054+0+0/resize/1000x1054!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F3e%2F4e%2Fd0ea428b346cbfd36860d61666bf%2Fsdut-arturo-sandoval-on-his-20160830">
                 </div>
             </section>
-            <section id="influence" class="flex flex-row-reverse gap-10 justify-center items-center">
-                <div>
+            <section slide="5" class="flex flex-row-reverse gap-10 justify-center items-center h-screen">
+                <div class="flex flex-col">
                     <h1 class="font-black text-5xl pb-5 slide-in-right">Arturo's Influence</h1>
                     <p class="slide-in-right">
-                        Some of Arturo Sandoval's greatest accomplishments include <b>winning ten Grammy Awards, six Billboard Awards, and an Emmy Award.</b> He has also collaborated with many renowned musicians, <b>including Dizzy Gillespie, Frank Sinatra, and Alicia Keys.</b>
+                        Arutor Sandoval has influenced others by doing several acts of kindness, one of the most prominent ones I know personally was <b>Cancer Blows</b>, which was a <b>fundraiser for Cancer awareness</b>, and to raise money to fund it. He was a part of it, including several other famous musicians (not just trumpet players), it's an amazing program that he is a part of. He has also influenced countless musicians with his <b>amazing trumpet playing and his unique blend of jazz and Latin music.</b> He has inspired many to pursue careers in music and has helped to popularize Latin jazz around the world.
                     </p>
-                    <br>
-                    <br>
-                    <a goto="rise-to-fame" class="cursor-pointer click-me slide-in-right"><i>Go back</i></a>
-                    <br>
-                    <a goto="" class="cursor-pointer click-me slide-in-right"><i>Next point</i></a>
+                    <a goto="4" class="cursor-pointer click-me slide-in-right mt-10"><i>Go back</i></a>
+                    <a goto="6" class="cursor-pointer click-me slide-in-right"><i>Next point</i></a>
                 </div>
                 <div class="overflow-hidden">
                     <img class="rounded-3xl slide-in-right origin-center -rotate-3" style="height: 30rem !important; width: 100rem !important;" src="https://media.yourobserver.com/img/photos/2022/05/17/380995_standard_t900x600.jpeg?d666c25c0ae2036b31e9e5deb97c48b6f611244c">
                 </div>
             </section>
-            <section></section>
+            <section slide="6" class="flex flex-row gap-10 justify-center items-center h-screen">
+                <div class="flex flex-col">
+                    <h1 class="font-black text-5xl pb-5 slide-in-left">Arturos Accomplishments</h1>
+                    <p class="slide-in-left">
+                        Some of Arturo Sandoval's greatest accomplishments include <b>winning ten Grammy Awards, six Billboard Awards, and an Emmy Award.</b> He has also collaborated with many renowned musicians, including <b>Dizzy Gillespie, Frank Sinatra, and Alicia Keys.</b>
+                    </p>
+                    <a goto="5" class="cursor-pointer click-me slide-in-left mt-10"><i>Go back</i></a>
+                    <a goto="7" class="cursor-pointer click-me slide-in-left"><i>Next point</i></a>
+                </div>
+                <div class="overflow-hidden">
+                    <img class="rounded-3xl slide-in-right rotate-3" style="height: 40rem !important; width: 60rem !important;" src="https://s.hdnux.com/photos/47/32/02/10330295/10/1200x0.jpg">
+                </div>
+            </section>
         </div>
     </body>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script defer>
-        $(document).ready(function() {
-            var marquee = $(".marquee");
-            var imgs = $(".marquee > div > img");
-            
-            let imgs_set = []
-            for (var i = imgs.length; i >= 0; i--) {
-                if (imgs_set.length == 18)
-                    return
+        $(document).ready(function () {
+            /**
+             * Marquee setup
+             */
+            {
+                let max_images = 100; // So many images that it will basically be impossible for double instances
+                let list = [
+                    "https://www.udiscovermusic.com/wp-content/uploads/2022/05/Arturo-Sandoval-GettyImages-495914686.jpg",
+                    "https://i.ytimg.com/vi/z1nOfbQ_GwU/maxresdefault.jpg",
+                    "https://www.wabe.org/app/uploads/2022/11/Arturo-Studio-Shot2-scaled.jpg-1440x810-1668098335.jpg",
+                    "https://www.wavy.com/wp-content/uploads/sites/3/2023/04/Action-shot-2xTrumpets-e1681746228214.jpg?w=2439&h=1440&crop=1",
+                    "https://www.vanlaartrumpets.nl/en/wp-content/uploads/sites/2/2015/10/Arturo_Sandoval_Grand_Rapids___67ed5ed04475b68313c82310a36e9f98-1024x808.jpg",
+                    "https://1.bp.blogspot.com/-eltOQ07e_OA/XUmEdbrlwvI/AAAAAAAAEfQ/DgZsi1PmBgc6d37QJssp2PF_ChKjWpNgQCLcBGAs/s1600/SandovalCOLORPHOTOS21.jpg",
+                    "https://cdn.uanews.arizona.edu/s3fs-public/styles/uaqs_large/public/images/events/2324_ArturoSandoval_MasterCalendar.jpg?itok=spy1i8oa",
+                    "https://the-talks.com/wp-content/uploads/2022/06/Arturo-Sandoval-01.jpg",
+                    "https://blogs.jwpepper.com/wp-content/uploads/2017/06/Arturo-Sandoval-cuedin-lead-feature-image.jpg",
+                    "https://allisyar.files.wordpress.com/2021/12/88968339_3218905354804324_3129568752484483072_n.jpg?w=1200",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1LBL-E54Pg4l5l5Kz06Y92O_nkgMtsWJqYA&usqp=CAU",
+                    "https://usrockermusic.com/wp-content/uploads/2024/01/Arturo-Sandoval-Photos-by-Farah-Sosa.jpg",
+                    "https://performingarts.nd.edu/wp-content/uploads/2018/09/Arturo-Sandoval-1.jpg",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQszt9xCysefPifC-dYk28Lo2C0daqAUSPVag&usqp=CAU",
+                    "https://www.vanlaartrumpets.nl/en/wp-content/uploads/sites/2/2016/07/Arturo_Sandoval_2.jpg",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiKB8uJ_ncAUAOtRmaIZs12kR4lK_mCIhyug&usqp=CAU",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOC4yPgk7FvnpX74K7_aot_Y-yZlGmgzT2ow&usqp=CAU",
+                    "https://desdelahabanaivan.files.wordpress.com/2013/11/arturo-sandoval.png",
+                    "https://www.desertsun.com/gcdn/-mm-/b9ecfdd43d6bd7095242d63b88c44e81efa4923b/c=0-124-2435-1500/local/-/media/2015/09/07/DetroitFreePress/DetroitFreePress/635772582210692128-jazz-20.JPG",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5cYM1IyJmER0CwxTu-KCHK_Quzt3JY9JEKg&usqp=CAU",
+                    "https://i.ytimg.com/vi/dvZE0t4YV90/maxresdefault.jpg",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnJevDrCvaLS_Fqvh4HzI7q3l9Wty1OE6gBP2Fr8b3luzwTxQTItgLpPBS59crNQ5H9c0&usqp=CAU",
+                    "https://live.staticflickr.com/4645/38721592024_c23a4b4924_b.jpg",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmZ2G3ftkbqMyKOqgPUw5Jm7jYuvQuuZgidEFxval_kvmbEK-obHLdj75hY8gmeuzXMxU&usqp=CAU",
+                    "https://bloximages.newyork1.vip.townnews.com/dailynebraskan.com/content/tncms/assets/v3/editorial/c/cb/ccb854f0-d62f-11e7-8e96-4b6c94de3a19/5a20a47a70e3a.image.jpg?resize=1200%2C880",
+                    "https://www.jambase.com/wp-content/uploads/2017/02/arturo-sandoval-arturo-sandoval-00f2140a-d602-4d22-9667-2ea8dc3d3cc5_301131_TABLET_LANDSCAPE_16_9-1480x832.jpg",
+                    "https://live.staticflickr.com/8806/28145244272_fc07392c3c_b.jpg",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrAq63exCLDoWJC1nHTbqPClL-xf2ZUhENIg&usqp=CAU"
+                ];
 
-                imgs_set.push(imgs[Math.floor(Math.random() * i)])
+                // Set 1
+                for (let i = 0; i < max_images; i++) {
+                    $(`.marquee > div[set="1"]`).append(`<img src="${list[Math.floor(Math.random() * list.length)]}">`);
+                }
                 
-                $(".marquee > div").each((index, divs) => {
-                    $(divs).append(imgs_set);
-                    imgs_set = []
-                })
+                // Set 2
+                for (let i = 0; i < max_images; i++) {
+                    $(`.marquee > div[set="2"]`).append(`<img src="${list[Math.floor(Math.random() * list.length)]}">`);
+                }
+                
+                // Set 3
+                for (let i = 0; i < max_images; i++) {
+                    $(`.marquee > div[set="3"]`).append(`<img src="${list[Math.floor(Math.random() * list.length)]}">`);
+                }
             }
 
-            $(window).on("ready load scroll", function() {
-                var viewportTop = $(window).scrollTop();
-                var viewportBottom = viewportTop + $(window).height();
+            /**
+             * Slide in text via scroll
+             */
+            {
+                // Now listen for scrolls
+                $(window).on("DOMContentLoaded load focus scroll", function() {
+                    $('.slide-in-left, .slide-in-right').each(function() {
+                        let top = $(window).scrollTop();
+                        var bottom = top + $(window).height();
+                        var element_top = $(this).offset().top;
+                        var element_bottom = element_top + $(this).outerHeight();
+                        var offset = $(window).height() / 5;
 
-                $('.slide-in-left, .slide-in-right').each(function() {
-                    var elementTop = $(this).offset().top;
-                    var elementBottom = elementTop + $(this).outerHeight();
-                    var offset = $(window).height() / 4;
-
-                    if ((elementTop + offset) < viewportBottom && (elementBottom - offset) > viewportTop) {
-                        $(this).addClass('slide-in');
-                    } else {
-                        $(this).removeClass('slide-in')
-                    }
+                        if ((element_top + offset) < bottom && (element_bottom - offset) > top) {
+                            $(this).addClass('slide-in');
+                        } else {
+                            $(this).removeClass('slide-in')
+                        }
+                    });
                 });
-            });
+            }
 
-            $('a[goto]').click(function(e) {
-                e.preventDefault();
+            /**
+             * Any <a> with [goto] is our slide movers
+             */
+            {
+                let titles = [
+                    "Welcome",
+                    "Who is Arturo?",
+                    ""
+                ]
 
-                var gotoId = $(this).attr('goto');
-                var targetOffset = $('#' + gotoId).offset().top;
+                // Goto the slide already present
+                if (localStorage.getItem("slide") != undefined) {
+                    let offset = $(`[slide="${localStorage.getItem("slide")}"]`).offset().top
+                    $('html, body').animate({
+                        scrollTop: offset
+                    }, 800)
+                    document.title = `Arturo Sandoval · ${titles[localStorage.getItem("slide") - 1]}`;
+                }
+                
+                $("a[goto]").click(function (event) {
+                    event.preventDefault();
 
-                window.location.href = `#${gotoId}`
+                    let slide = $(this).attr("goto");
+                    let offset = $(`[slide="${slide}"]`).offset().top;
 
-                $('html, body').animate({
-                    scrollTop: targetOffset - 100
-                }, 800);
-            });
-        });
+                    // Set the localstorage variable & title
+                    localStorage.setItem("slide", slide);
+                    document.title = `Arturo Sandoval · ${titles[localStorage.getItem("slide")]}`;
+                    
+                    $('html, body').animate({
+                        scrollTop: offset
+                    }, 800)
+                })
+            }
+        })
     </script>
 </html>
