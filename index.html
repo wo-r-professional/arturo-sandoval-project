@@ -21,6 +21,13 @@
                 overflow: hidden;
                 font-family: "Sofia Sans", sans-serif;
                 --theme: #474ce2;
+                --theme-hovered: #6065eb;
+                --theme-activated: #565ad4;
+            }
+
+            ::selection {
+                color: white;
+                background: var(--theme);
             }
 
             b {
@@ -28,6 +35,18 @@
                 text-decoration-thickness: 2px;
                 text-underline-offset: 1px;
                 text-decoration-color: var(--theme);
+            }
+
+            button {
+                background: var(--theme) !important;
+            }
+
+            button:hover {
+                background: var(--theme-hovered) !important;
+            }
+
+            button:active {
+                background-color: var(--theme-activated) !important;
             }
 
             a {
@@ -90,9 +109,10 @@
 
             .marquee\:left {
                 width: fit-content;
-                animation: move__left 400s linear infinite;
+                animation: move__left 200s linear infinite;
                 display: flex;
                 flex: 1;
+                pointer-events: none;
             }
 
             .marquee\:left:last-child {
@@ -110,6 +130,7 @@
                 animation: move__right 200s linear infinite;
                 display: flex;
                 flex: 1;
+                pointer-events: none;
             }
             
             @keyframes move__right {
@@ -131,9 +152,16 @@
                 transition: opacity 0.5s, transform 0.5s;
             }
 
+            .slide-in-top {
+                opacity: 0;
+                transform: translateY(-100%);
+                transition: opacity 0.5s, transform 0.5s;
+            }
+
             .slide-in {
                 opacity: 1;
                 transform: translateX(0);
+                transform: translateY(0);
             }
         </style>
     </head>
@@ -149,7 +177,7 @@
                     <div class="flex flex-col items-center bg-black/70 rounded-3xl w-3/6 py-10 shadow-2xl shadow-black-50">
                         <img src="https://the-talks.com/wp-content/uploads/2022/06/Arturo-Sandoval-01.jpg" style="clip-path: circle();" class="rounded-full w-1/1">
                         <div class="pt-10 flex flex-col items-center">
-                            <h2 class="font-black text-5xl">Arturo Sandoval</h2>
+                            <h2 class="font-black text-5xl overflow-hidden">Arturo Sandoval</h2>
                             <small>This is a website presentation created for my Spanish class.</small>
                             <a goto="2" class="cursor-pointer mt-10 text-2xl click-me">Learn more</a>
                         </div>
@@ -165,7 +193,7 @@
                     <a goto="1" class="cursor-pointer click-me slide-in-left mt-10"><i>Go back</i></a>
                     <a goto="3" class="cursor-pointer click-me slide-in-left"><i>Next point</i></a>
                 </div>
-                <div class="overflow-hidden">
+                <div class="overflow-hidden pointer-events-none">
                     <img class="rounded-3xl slide-in-right rotate-3" style="height: 40rem !important; width: 40rem !important;" src="https://www.readingeagle.com/wp-content/uploads/migration/2019/04/91a2d98a8c958f78533af97e9ae57f62.jpg?w=1024">
                 </div>
             </section>
@@ -178,8 +206,9 @@
                     <a goto="2" class="cursor-pointer click-me slide-in-right mt-10"><i>Go back</i></a>
                     <a goto="4" class="cursor-pointer click-me slide-in-right"><i>Next point</i></a>
                 </div>
-                <div class="overflow-hidden">
+                <div class="overflow-hidden flex flex-col pointer-events-none">
                     <img class="rounded-3xl slide-in-right origin-center -rotate-3" style="height: 30rem !important; width: 60rem !important;" src="https://live.staticflickr.com/5036/6953666788_d1209d4c1e.jpg">
+                    <img class="rounded-3xl slide-in-right origin-center -rotate-3" style="height: 17rem !important; width: 60rem !important;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Flag_of_Cuba.svg/800px-Flag_of_Cuba.svg.png">
                 </div>
             </section>
             <section slide="4" class="flex flex-row gap-10 justify-center items-center h-screen">
@@ -191,7 +220,7 @@
                     <a goto="3" class="cursor-pointer click-me slide-in-left mt-10"><i>Go back</i></a>
                     <a goto="5" class="cursor-pointer click-me slide-in-left"><i>Next point</i></a>
                 </div>
-                <div class="overflow-hidden">
+                <div class="overflow-hidden pointer-events-none">
                     <img class="rounded-3xl slide-in-left origin-center rotate-3" style="height: 30rem !important; width: 50rem !important;" src="https://ca-times.brightspotcdn.com/dims4/default/cb40905/2147483647/strip/false/crop/1000x1054+0+0/resize/1000x1054!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F3e%2F4e%2Fd0ea428b346cbfd36860d61666bf%2Fsdut-arturo-sandoval-on-his-20160830">
                 </div>
             </section>
@@ -204,7 +233,7 @@
                     <a goto="4" class="cursor-pointer click-me slide-in-right mt-10"><i>Go back</i></a>
                     <a goto="6" class="cursor-pointer click-me slide-in-right"><i>Next point</i></a>
                 </div>
-                <div class="overflow-hidden">
+                <div class="overflow-hidden pointer-events-none">
                     <img class="rounded-3xl slide-in-right origin-center -rotate-3" style="height: 30rem !important; width: 200rem !important;" src="https://media.yourobserver.com/img/photos/2022/05/17/380995_standard_t900x600.jpeg?d666c25c0ae2036b31e9e5deb97c48b6f611244c">
                 </div>
             </section>
@@ -217,7 +246,7 @@
                     <a goto="5" class="cursor-pointer click-me slide-in-left mt-10"><i>Go back</i></a>
                     <a goto="7" class="cursor-pointer click-me slide-in-left"><i>Next point</i></a>
                 </div>
-                <div class="overflow-hidden">
+                <div class="overflow-hidden pointer-events-none">
                     <img class="rounded-3xl slide-in-right rotate-3" style="height: 40rem !important; width: 100rem !important;" src="https://s.hdnux.com/photos/47/32/02/10330295/10/1200x0.jpg">
                 </div>
             </section>
@@ -225,13 +254,36 @@
                 <div class="flex flex-col">
                     <h1 class="font-black text-5xl pb-5 slide-in-right">A Quote From Arturo</h1>
                     <p class="slide-in-right">
-                        <i><b>Music has been my best friend my whole life. It's always been there for me and never let me down.</b></i>
+                        <i><b>I know that I haven't invented anything myself, that I am only a mixture of countless influences, and thanks to that I am able to find my own style of playing.</b></i>
                     </p>
                     <a goto="6" class="cursor-pointer click-me slide-in-right mt-10"><i>Go back</i></a>
                     <a goto="8" class="cursor-pointer click-me slide-in-right"><i>Next point</i></a>
                 </div>
-                <div class="overflow-hidden">
-                    <img class="rounded-3xl slide-in-right origin-center -rotate-3" style="height: 30rem !important; width: 0rem !important;" src="">
+                <div class="overflow-hidden pointer-events-none">
+                    <img class="rounded-3xl slide-in-right origin-center -rotate-3" style="height: 40rem !important; width: 40rem !important;" src="https://www.thekurlandagency.com/kurlandpress/wp-content/uploads/2018/05/5afe61b0b914a.image_-e1527179749325.jpg">
+                </div>
+            </section>
+            <section slide="8" class="flex flex-row gap-10 justify-center items-center h-screen">
+                <div class="flex flex-col">
+                    <h1 class="font-black text-5xl pb-5 slide-in-left">Some Interesting Facts</h1>
+                    <p class="slide-in-left">
+                        Arturo ha hecho cosas interesantes en su carrera, una de las cuales es que ha <b>jugado para varios presidentes de Estados Unidos, incluyendo Barack Obama y George W. Bush.</b> También comenzó a <b>estudiar trompeta clásica a la edad de doce años</b>, y fue <b>miembro fundador del grupo Irakere ganador del Grammy.</b>
+                    </p>
+                    <a goto="6" class="cursor-pointer click-me slide-in-left mt-10"><i>Go back</i></a>
+                    <a goto="9" class="cursor-pointer click-me slide-in-left"><i>Credits</i></a>
+                </div>
+                <div class="overflow-hidden pointer-events-none">
+                    <img class="rounded-3xl slide-in-right rotate-3" style="height: 40rem !important; width: 100rem !important;" src="https://st3.depositphotos.com/10487960/13574/i/450/depositphotos_135749270-stock-photo-arturo-sandoval-barack-obama.jpg">
+                </div>
+            </section>
+            <section slide="9" class="flex flex-row gap-10 justify-center items-center h-screen">
+                <div class="flex flex-col justify-center items-center">
+                    <h1 class="font-black text-5xl pb-5 slide-in-top">Applauso</h1>
+                    <p class="slide-in-top">
+                        Thanks for looking at my <b>"website"</b>, hope you enjoyed reading it.
+                    </p>
+                    <a goto="1" class="cursor-pointer click-me slide-in-top mt-10"><i>Go back to start</i></a>
+                    <a goto="https://github.com/wo-r/arturo-sandoval-project" class="cursor-pointer click-me slide-in-top"><i>Github project</i></a>
                 </div>
             </section>
         </div>
@@ -239,6 +291,52 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script defer>
         $(document).ready(function () {
+            /**
+             * Instruction panel for controls
+             */
+            {
+                if (localStorage.getItem("instructions") == undefined) {
+                    $("body").hide()
+                    $("html").append(`
+                        <div id="instructions" class="fixed inset-0 bg-black flex items-center justify-center z-20">
+                            <div class="bg-white text-black rounded-lg max-w-lg mx-auto">
+                                <div class="mb-4 p-8">
+                                    <h2 class="text-xl font-black">Instructions</h2>
+                                    <p>There are several ways to navigate this page! This will talk about ways to navigate the page.</p>
+                                    <div class="flex flex-row mt-10 gap-5">
+                                        <div class="text-3xl flex w-10">1.</div>
+                                        <div>
+                                            <span>Click the available buttons <b>Back</b> or <b>Next</b> which will move the slides forwards or backwards.</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-row mt-5 gap-5">
+                                        <div class="text-3xl flex w-10">2.</div>
+                                        <div>
+                                            <span>Use your mouse. <b>Left click</b> will move the slides forwards, and <b>Right click</b> will move the slides backwards.</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-row mt-5 gap-5">
+                                        <div class="text-3xl flex w-10">2.</div>
+                                        <div>
+                                            <span>Use your arrow keys. <b>Up</b> and <b>Down</b> arrow keys will move the slides forwards (Down) or backwards (Up). You can also use <b>Left</b> and <b>Right</b> arrow keys which will move the slides forwards (Right) or backwards (Left).</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-right p-3">
+                                    <button class="text-white font-bold py-2 px-4 rounded" id="close">Understood</button>
+                                </div>
+                            </div>
+                        </div>
+                    `).on("mousedown", function () {
+                        if ($(event.target).attr("id") == "close") {
+                            $("#instructions").remove();
+                            localStorage.setItem("instructions", "read");
+                            $("body").show();
+                        }
+                    });
+                }
+            }
+
             /**
              * Marquee setup
              */
@@ -296,8 +394,8 @@
              */
             {
                 // Now listen for scrolls
-                $(window).on("DOMContentLoaded load focus scroll", function() {
-                    $('.slide-in-left, .slide-in-right').each(function() {
+                $(window).on("DOMContentLoaded load focus resize scroll", function() {
+                    $(".slide-in-left, .slide-in-right, .slide-in-top").each(function() {
                         let top = $(window).scrollTop();
                         var bottom = top + $(window).height();
                         var element_top = $(this).offset().top;
@@ -317,6 +415,8 @@
              * Any <a> with [goto] is our slide movers
              */
             {
+                let in_scroll = false;
+                let in_click = false;
                 let titles = [
                     "Welcome",
                     "About",
@@ -324,7 +424,9 @@
                     "Fame",
                     "Influence",
                     "Accomplishments",
-                    ""
+                    "Quote",
+                    "Facts",
+                    "Credits"
                 ]
 
                 // Goto the slide already present
@@ -334,21 +436,125 @@
                         scrollTop: offset
                     }, 800)
                     document.title = `Arturo Sandoval · ${titles[localStorage.getItem("slide") - 1]}`;
+
+                    // Fixes the slide ins sometimes not sliding in
+                    $(`[slide="${localStorage.getItem("slide")}"] .slide-in-left, [slide="${localStorage.getItem("slide")}"] .slide-in-right, [slide="${localStorage.getItem("slide")}"] .slide-in-top`).each(function () {
+                        let top = $(window).scrollTop();
+                        var bottom = top + $(window).height();
+                        var element_top = $(this).offset().top;
+                        var element_bottom = element_top + $(this).outerHeight();
+                        var offset = $(window).height() / 5;
+
+                        if ((element_top + offset) < bottom && (element_bottom - offset) > top) {
+                            $(this).addClass('slide-in');
+                        } else {
+                            $(this).removeClass('slide-in')
+                        }
+                    })
+
+                    // Anything that is resized will break so check for that
+                    $(window).on("resize focus", function () {
+                        let offset = $(`[slide="${localStorage.getItem("slide")}"]`).offset().top
+                        $('html, body').animate({
+                            scrollTop: offset
+                        }, 800)
+                        document.title = `Arturo Sandoval · ${titles[localStorage.getItem("slide") - 1]}`;
+                    })
                 }
+                else
+                    localStorage.setItem("slide", "1");
                 
                 $("a[goto]").click(function (event) {
                     event.preventDefault();
+
+                    if ($(this).attr("goto").includes("https"))
+                        window.open($(this).attr("goto"), "_blank");
 
                     let slide = $(this).attr("goto");
                     let offset = $(`[slide="${slide}"]`).offset().top;
 
                     // Set the localstorage variable & title
                     localStorage.setItem("slide", slide);
-                    document.title = `Arturo Sandoval · ${titles[localStorage.getItem("slide")]}`;
+                    document.title = `Arturo Sandoval · ${titles[slide - 1]}`;
                     
                     $('html, body').animate({
                         scrollTop: offset
                     }, 800)
+                })
+
+                // If the user wants to use "Up" / "Down" / "Left" / "Right" arrow keys
+                $(document).keydown(function(event) {
+                    if (in_scroll)
+                        return;
+                    
+                    let slide;
+                    switch(event.which) {
+                        case 38: // Up
+                            slide = parseInt(localStorage.getItem("slide")) - 1;
+                            event.preventDefault();
+                            break;
+                        case 40: // Down
+                            slide = parseInt(localStorage.getItem("slide")) + 1;
+                            event.preventDefault();
+                            break;
+                        case 37: // Left
+                            slide = parseInt(localStorage.getItem("slide")) - 1;
+                            event.preventDefault();
+                            break;
+                        case 39: // Right
+                            slide = parseInt(localStorage.getItem("slide")) + 1;
+                            event.preventDefault();
+                            break;
+                    }
+
+                    let offset = $(`[slide="${slide}"]`).offset().top;
+
+                    localStorage.setItem("slide", slide);
+                    document.title = `Arturo Sandoval · ${titles[slide - 1]}`;
+
+                    in_scroll = true;
+                    $('html, body').animate({
+                        scrollTop: offset
+                    }, 800, function() {
+                        in_scroll = false;
+                    })
+                });
+
+                // If you click the outer body
+                $("body").on("click contextmenu", function (event) {
+                    // If context menu anyways then prevent target
+                    if (event.button == 2)
+                        event.preventDefault();
+
+                    if (in_click)
+                        return;
+
+                    let slide;
+                    switch (event.button) {
+                        case 0: // Left
+                            if ($(event.target).prop("tagName") == "BODY" || $(event.target).prop("tagName") == "SECTION" || $(event.target).hasClass("marquee") || $(event.target).hasClass("h-screen")) {
+                                slide = parseInt(localStorage.getItem("slide")) + 1;
+                            }
+                            event.preventDefault();
+                            break;
+                        case 2: // Right
+                            if ($(event.target).prop("tagName") == "BODY" || $(event.target).prop("tagName") == "SECTION" || $(event.target).hasClass("marquee") || $(event.target).hasClass("h-screen")) {
+                                slide = parseInt(localStorage.getItem("slide")) - 1;
+                            }
+                            break;
+                    }
+
+                    let offset = $(`[slide="${slide}"]`).offset().top;
+
+                    localStorage.setItem("slide", slide);
+                    document.title = `Arturo Sandoval · ${titles[slide - 1]}`;
+
+                    in_click = true;
+                    $('html, body').animate({
+                        scrollTop: offset
+                    }, 800, function() {
+                        in_click = false;
+                    })
                 })
             }
         })
