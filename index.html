@@ -174,7 +174,7 @@
         <div class="container mx-auto z-10 flex flex-col gap-96">
             <section slide="1">
                 <div class="h-screen flex justify-center items-center">
-                    <div class="flex flex-col items-center bg-black/70 rounded-3xl w-3/6 py-10 shadow-2xl shadow-black-50">
+                    <div class="flex flex-col items-center bg-black/70 rounded-3xl w-3/6 py-10 shadow-2xl shadow-black">
                         <img src="https://the-talks.com/wp-content/uploads/2022/06/Arturo-Sandoval-01.jpg" style="clip-path: circle();" class="rounded-full w-1/1">
                         <div class="pt-10 flex flex-col items-center">
                             <h2 class="font-black text-5xl overflow-hidden">Arturo Sandoval</h2>
@@ -241,13 +241,13 @@
                 <div class="flex flex-col">
                     <h1 class="font-black text-5xl pb-5 slide-in-left">Arturos Accomplishments</h1>
                     <p class="slide-in-left">
-                        Some of Arturo Sandoval's greatest accomplishments include <b>winning ten Grammy Awards, six Billboard Awards, and an Emmy Award.</b> He has also collaborated with many renowned musicians, including <b>Dizzy Gillespie, Frank Sinatra, and Alicia Keys.</b>
+                        Arturo Sandoval's impact extends far beyond others with notable acts of kindness. One such endeavor was <b>Cancer Blows a fundraiser for cancer awareness</b> that he actively supported <b>raising $700,000</b>. He also participated in the <b>Benefit Concert for Haiti Earthquake Relief</b> which <b>raised $500,000 for earthquake relief efforts</b> in Haiti. Sandoval's involvement in the <b>All-Star Jazz Benefit Concert contributed $300,000 to fund music education programs in underprivileged communities.</b> These efforts showcase Sandoval's commitment to using his talent and influence to make a meaningful difference in the world.
                     </p>
                     <a goto="5" class="cursor-pointer click-me slide-in-left mt-10"><i>Go back</i></a>
                     <a goto="7" class="cursor-pointer click-me slide-in-left"><i>Next point</i></a>
                 </div>
                 <div class="overflow-hidden pointer-events-none">
-                    <img class="rounded-3xl slide-in-right rotate-3" style="height: 40rem !important; width: 100rem !important;" src="https://s.hdnux.com/photos/47/32/02/10330295/10/1200x0.jpg">
+                    <img class="rounded-3xl slide-in-right rotate-3" style="height: 40rem !important; width: 200rem !important;" src="https://s.hdnux.com/photos/47/32/02/10330295/10/1200x0.jpg">
                 </div>
             </section>
             <section slide="7" class="flex flex-row-reverse gap-10 justify-center items-center h-screen">
@@ -270,13 +270,27 @@
                         Arturo ha hecho cosas interesantes en su carrera, una de las cuales es que ha <b>jugado para varios presidentes de Estados Unidos, incluyendo Barack Obama y George W. Bush.</b> También comenzó a <b>estudiar trompeta clásica a la edad de doce años</b>, y fue <b>miembro fundador del grupo Irakere ganador del Grammy.</b>
                     </p>
                     <a goto="6" class="cursor-pointer click-me slide-in-left mt-10"><i>Go back</i></a>
-                    <a goto="9" class="cursor-pointer click-me slide-in-left"><i>Credits</i></a>
+                    <a goto="9" class="cursor-pointer click-me slide-in-left"><i>Next</i></a>
                 </div>
                 <div class="overflow-hidden pointer-events-none">
                     <img class="rounded-3xl slide-in-right rotate-3" style="height: 40rem !important; width: 100rem !important;" src="https://st3.depositphotos.com/10487960/13574/i/450/depositphotos_135749270-stock-photo-arturo-sandoval-barack-obama.jpg">
                 </div>
             </section>
             <section slide="9" class="flex flex-row gap-10 justify-center items-center h-screen">
+                <div class="flex flex-col justify-center items-center">
+                    <h1 class="font-black text-5xl pb-5 slide-in-top">One of his songs</h1>
+                    <p class="slide-in-top">
+                        This is one of my most favorite songs from him.
+                    </p>
+                    <video id="video" class="slide-in-top bg-black mt-5" width="500rem" height="300rem" controls>
+                        <source src="https://dl31.genyoutube.online/mates/en/download?url=ZTREjvNyOeRbKt/xY7XdgX1tWmypShtNuoM8PMQ61wm3CYL0o1CUFiMyicbwSitsEOwtVMlWrh5aCUstUaqFliUVt66mFIvr5560LtyPYzSrx82mBVCKYT8s3lwi8HmQU4LtcISfcU2cBwvwi6f6Wo%2BsjL6Yj2y50eMQpd08rfXHKxlqTvG85owXLLaWb3TF" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <a goto="8" class="cursor-pointer click-me slide-in-left mt-10"><i>Go back</i></a>
+                    <a goto="10" class="cursor-pointer click-me slide-in-left"><i>Credits</i></a>
+                </div>
+            </section>
+            <section slide="10" class="flex flex-row gap-10 justify-center items-center h-screen">
                 <div class="flex flex-col justify-center items-center">
                     <h1 class="font-black text-5xl pb-5 slide-in-top">Applauso</h1>
                     <p class="slide-in-top">
@@ -299,28 +313,25 @@
                     $("body").hide()
                     $("html").append(`
                         <div id="instructions" class="fixed inset-0 bg-black flex items-center justify-center z-20">
-                            <div class="bg-white text-black rounded-lg max-w-lg mx-auto">
+                            <div class="bg-white text-black rounded-lg max-w-lg mx-auto shadow-2xl shadow-black-50">
                                 <div class="mb-4 p-8">
                                     <h2 class="text-xl font-black">Instructions</h2>
                                     <p>There are several ways to navigate this page! This will talk about ways to navigate the page.</p>
-                                    <div class="flex flex-row mt-10 gap-5">
-                                        <div class="text-3xl flex w-10">1.</div>
-                                        <div>
-                                            <span>Click the available buttons <b>Back</b> or <b>Next</b> which will move the slides forwards or backwards.</span>
+                                    <div class="flex flex-col gap-5 mt-7">
+                                        <div class="flex flex-row justify-between items-start gap-5">
+                                            <div class="text-3xl w-full max-w-max"><span class="w-max">1.</span></div>
+                                            <div><span>Click the available buttons <b>Back</b> or <b>Next</b> which will move the slides forwards or backwards.</span></div>
+                                        </div>
+                                        <div class="flex flex-row justify-between items-start gap-5">
+                                            <div class="text-3xl w-full max-w-max"><span class="w-max">2.</span></div>
+                                            <div><span>Use your mouse. <b>Left click</b> will move the slides forwards, and <b>Right click</b> will move the slides backwards.</span></div>
+                                        </div>
+                                        <div class="flex flex-row justify-between items-start gap-5">
+                                            <div class="text-3xl w-full max-w-max"><span class="w-max">3.</span></div>
+                                            <div><span>Use your arrow keys. <b>Up</b> and <b>Down</b> arrow keys will move the slides forwards (Down) or backwards (Up). You can also use <b>Left</b> and <b>Right</b> arrow keys which will move the slides forwards (Right) or backwards (Left).</span></div>
                                         </div>
                                     </div>
-                                    <div class="flex flex-row mt-5 gap-5">
-                                        <div class="text-3xl flex w-10">2.</div>
-                                        <div>
-                                            <span>Use your mouse. <b>Left click</b> will move the slides forwards, and <b>Right click</b> will move the slides backwards.</span>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-row mt-5 gap-5">
-                                        <div class="text-3xl flex w-10">2.</div>
-                                        <div>
-                                            <span>Use your arrow keys. <b>Up</b> and <b>Down</b> arrow keys will move the slides forwards (Down) or backwards (Up). You can also use <b>Left</b> and <b>Right</b> arrow keys which will move the slides forwards (Right) or backwards (Left).</span>
-                                        </div>
-                                    </div>
+                                    <p class="mt-7">This page also has a video that automatically plays when you scroll to it, so make sure the volume is on!</p>
                                 </div>
                                 <div class="text-right p-3">
                                     <button class="text-white font-bold py-2 px-4 rounded" id="close">Understood</button>
@@ -400,7 +411,7 @@
                         var bottom = top + $(window).height();
                         var element_top = $(this).offset().top;
                         var element_bottom = element_top + $(this).outerHeight();
-                        var offset = $(window).height() / 5;
+                        var offset = $(window).height() / 10;
 
                         if ((element_top + offset) < bottom && (element_bottom - offset) > top) {
                             $(this).addClass('slide-in');
@@ -409,6 +420,26 @@
                         }
                     });
                 });
+            }
+
+            /**
+             * Handle the <video> element on slide 9
+             */
+            {
+                $("#video")[0].currentTime = 2;
+                $(window).on("DOMContentLoaded load focus resize scroll", function () {
+                    let top = $(window).scrollTop();
+                    var bottom = top + $(window).height();
+                    var element_top = $("#video").offset().top;
+                    var element_bottom = element_top + $("#video").outerHeight();
+                    var offset = $(window).height() / 10;
+
+                    if ((element_top + offset) < bottom && (element_bottom - offset) > top) {
+                        $("#video")[0].play();
+                    } else {
+                        $("#video")[0].pause();
+                    }
+                })
             }
 
             /**
@@ -426,6 +457,7 @@
                     "Accomplishments",
                     "Quote",
                     "Facts",
+                    "Video",
                     "Credits"
                 ]
 
@@ -443,7 +475,7 @@
                         var bottom = top + $(window).height();
                         var element_top = $(this).offset().top;
                         var element_bottom = element_top + $(this).outerHeight();
-                        var offset = $(window).height() / 5;
+                        var offset = $(window).height() / 10;
 
                         if ((element_top + offset) < bottom && (element_bottom - offset) > top) {
                             $(this).addClass('slide-in');
