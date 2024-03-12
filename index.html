@@ -266,7 +266,7 @@
             </section>
             <section slide="8" class="flex flex-row gap-10 justify-center items-center h-screen">
                 <div class="flex flex-col">
-                    <h1 class="font-black text-5xl pb-5 slide-in-left">Some Interesting Facts</h1>
+                    <h1 class="font-black text-5xl pb-5 slide-in-left">Algunos datos interesantes</h1>
                     <p class="slide-in-left">
                         Arturo ha hecho cosas interesantes en su carrera, una de las cuales es que ha <b>jugado para varios presidentes de Estados Unidos, incluyendo Barack Obama y George W. Bush.</b> También comenzó a <b>estudiar trompeta clásica a la edad de doce años</b>, y fue <b>miembro fundador del grupo Irakere ganador del Grammy.</b>
                     </p>
@@ -385,7 +385,6 @@
                     "images/image-28.jpg"
                 ];
 
-
                 // Set 1
                 for (let i = 0; i < max_images; i++) {
                     $(`.marquee > div[set="1"]`).append(`<img src="${list[Math.floor(Math.random() * list.length)]}">`);
@@ -458,17 +457,20 @@
                     "Influence",
                     "Accomplishments",
                     "Quote",
-                    "Facts",
+                    "Hechos",
                     "Video",
                     "Credits"
                 ]
 
                 // Goto the slide already present
                 if (localStorage.getItem("slide") != undefined) {
-                    let offset = $(`[slide="${localStorage.getItem("slide")}"]`).offset().top
-                    $('html, body').animate({
-                        scrollTop: offset
-                    }, 800)
+                    // Don't know why this errors but lets just ignore it.
+                    try {
+                        let offset = $(`[slide="${localStorage.getItem("slide")}"]`).offset().top
+                        $('html, body').animate({
+                            scrollTop: offset
+                        }, 800)
+                    } catch(e) {}
                     document.title = `Arturo Sandoval · ${titles[localStorage.getItem("slide") - 1]}`;
 
                     // Fixes the slide ins sometimes not sliding in
@@ -488,11 +490,14 @@
 
                     // Anything that is resized will break so check for that
                     $(window).on("resize focus", function () {
-                        let offset = $(`[slide="${localStorage.getItem("slide")}"]`).offset().top
-                        $('html, body').animate({
-                            scrollTop: offset
-                        }, 800)
-                        document.title = `Arturo Sandoval · ${titles[localStorage.getItem("slide") - 1]}`;
+                        // Don't know why this errors but lets just ignore it.
+                        try {
+                            let offset = $(`[slide="${localStorage.getItem("slide")}"]`).offset().top
+                            $('html, body').animate({
+                                scrollTop: offset
+                            }, 800)
+                            document.title = `Arturo Sandoval · ${titles[localStorage.getItem("slide") - 1]}`;
+                        } catch(e) {}
                     })
                 }
                 else
@@ -505,15 +510,18 @@
                         window.open($(this).attr("goto"), "_blank");
 
                     let slide = $(this).attr("goto");
-                    let offset = $(`[slide="${slide}"]`).offset().top;
+                    // Don't know why this errors but lets just ignore it.
+                    try {
+                        let offset = $(`[slide="${slide}"]`).offset().top;
 
-                    // Set the localstorage variable & title
-                    localStorage.setItem("slide", slide);
-                    document.title = `Arturo Sandoval · ${titles[slide - 1]}`;
-                    
-                    $('html, body').animate({
-                        scrollTop: offset
-                    }, 800)
+                        // Set the localstorage variable & title
+                        localStorage.setItem("slide", slide);
+                        document.title = `Arturo Sandoval · ${titles[slide - 1]}`;
+                        
+                        $('html, body').animate({
+                            scrollTop: offset
+                        }, 800)
+                    } catch(e) {}
                 })
 
                 // If the user wants to use "Up" / "Down" / "Left" / "Right" arrow keys
@@ -541,17 +549,20 @@
                             break;
                     }
 
-                    let offset = $(`[slide="${slide}"]`).offset().top;
+                    // Don't know why this errors but lets just ignore it.
+                    try {
+                        let offset = $(`[slide="${slide}"]`).offset().top;
 
-                    localStorage.setItem("slide", slide);
-                    document.title = `Arturo Sandoval · ${titles[slide - 1]}`;
+                        localStorage.setItem("slide", slide);
+                        document.title = `Arturo Sandoval · ${titles[slide - 1]}`;
 
-                    in_scroll = true;
-                    $('html, body').animate({
-                        scrollTop: offset
-                    }, 800, function() {
-                        in_scroll = false;
-                    })
+                        in_scroll = true;
+                        $('html, body').animate({
+                            scrollTop: offset
+                        }, 800, function() {
+                            in_scroll = false;
+                        })
+                    } catch(e) {}
                 });
 
                 // If you click the outer body
@@ -578,17 +589,20 @@
                             break;
                     }
 
-                    let offset = $(`[slide="${slide}"]`).offset().top;
+                    // Don't know why this errors but lets just ignore it.
+                    try {
+                        let offset = $(`[slide="${slide}"]`).offset().top;
 
-                    localStorage.setItem("slide", slide);
-                    document.title = `Arturo Sandoval · ${titles[slide - 1]}`;
+                        localStorage.setItem("slide", slide);
+                        document.title = `Arturo Sandoval · ${titles[slide - 1]}`;
 
-                    in_click = true;
-                    $('html, body').animate({
-                        scrollTop: offset
-                    }, 800, function() {
-                        in_click = false;
-                    })
+                        in_click = true;
+                        $('html, body').animate({
+                            scrollTop: offset
+                        }, 800, function() {
+                            in_click = false;
+                        })
+                    } catch(e) {}
                 })
             }
         })
